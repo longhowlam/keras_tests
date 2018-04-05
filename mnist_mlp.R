@@ -4,7 +4,7 @@ library(keras)
 
 batch_size <- 128
 num_classes <- 10
-epochs <- 30
+epochs <- 20
 
 # The data, shuffled and split between train and test sets
 c(c(x_train, y_train), c(x_test, y_test)) %<-% dataset_mnist()
@@ -43,6 +43,7 @@ model %>% compile(
 
 # Training & Evaluation ----------------------------------------------------
 
+t0 = proc.time()
 # Fit model to data
 history <- model %>% fit(
   x_train, y_train,
@@ -52,7 +53,10 @@ history <- model %>% fit(
   validation_split = 0.2
 )
 
-plot(history)
+t1 = proc.time() -t0
+
+cat("TIME", t1, "\n")
+#plot(history)
 
 score <- model %>% evaluate(
   x_test, y_test,

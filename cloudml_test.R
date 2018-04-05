@@ -1,9 +1,10 @@
 #devtools::install_github("rstudio/cloudml")
 library(cloudml)
-gcloud_install()
+#gcloud_install()
 gcloud_init()
 
-cloudml_train(file="mnist_mlp.R")
+cloudml_train(file="mnist_mlp.R", master_type = "large_model")
 job_status()
 job_collect()
-cloudml::job_list()
+job_list()
+job_cancel()
