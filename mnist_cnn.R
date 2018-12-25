@@ -1,6 +1,7 @@
 library(keras)
 
 # OP GCP Tesla V100  25s 1e epoch, daarna 2s per epoch
+# Op laptop zonder GPU 65s en daarna 72s per epoch
 # Data Preparation -----------------------------------------------------
 
 batch_size <- 128
